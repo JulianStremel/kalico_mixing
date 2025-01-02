@@ -1960,10 +1960,10 @@
 <li><strong>Versatility with heater types:</strong> MPC performs well with standard cartridge heaters and PTC heaters.</li>
 <li><strong>Effective for high and low flow hotends:</strong> Regardless of the flow rate of the hotend, MPC maintains effective temperature control.     </li>
 </ul>
-<blockquote>
-<p>[!CAUTION]
-This feature controls the portions of the 3D printer that can get very hot. All standard Kalico warnings apply. Please report all issues and bugs to <a href="https://github.com/KalicoCrew/kalico/issues">GitHub</a> or <a href="Contact.html#discord">Discord</a>.</p>
-</blockquote>
+<div class="admonition danger">
+<p class="admonition-title">Caution</p>
+<p>This feature controls the portions of the 3D printer that can get very hot. All standard Kalico warnings apply. Please report all issues and bugs to <a href="https://github.com/KalicoCrew/kalico/issues">GitHub</a> or <a href="Contact.html#discord">Discord</a>.</p>
+</div>
 <h1 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">&para;</a></h1>
 <p>To use MPC as the temperature controller for the extruder use the following basic configuration block.</p>
 <div class="highlight"><pre><span></span><code>[extruder]
@@ -2293,10 +2293,10 @@ filament_heat_capacity: 1.8
 <div class="highlight"><pre><span></span><code>MPC_CALIBRATE HEATER=extruder FAN_BREAKPOINTS=7
 </code></pre></div>
 
-<blockquote>
-<p>[!NOTE]
-Ensure that the part cooling fan is off before starting calibration.  </p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ensure that the part cooling fan is off before starting calibration.  </p>
+</div>
 <p>After successful  calibration the method will generate the key model parameters into the log for future reference.  </p>
 <p><img alt="Calibration Parameter Output" src="img/MPC_calibration_output.png" /></p>
 <p>A <code>SAVE_CONFIG</code> command is then required to commit these calibrated model parameters to the printer config or the user can manually update the values. The <em>SAVE_CONFIG</em> block should then look like: </p>
@@ -2310,10 +2310,10 @@ Ensure that the part cooling fan is off before starting calibration.  </p>
 #*# fan_ambient_transfer=0.155082, 0.20156, 0.216441
 </code></pre></div>
 
-<blockquote>
-<p>[!NOTE]
-If the [extruder] section is in a .cfg file other than printer.cfg the <code>SAVE_CONFIG</code> command may not be able to write the calibration parameters and klippy will provide an error. </p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the [extruder] section is in a .cfg file other than printer.cfg the <code>SAVE_CONFIG</code> command may not be able to write the calibration parameters and klippy will provide an error. </p>
+</div>
 <p>These model parameters are not suitable for pre-configuration or are not explicitly determinable. Advanced users could tweak these post calibration based on the following guidance: Slightly increasing these values will increase the temperature where MPC settles and slightly decreasing them will decrease the settling temperature.  </p>
 <ul>
 <li><code>block_heat_capacity:</code><br />
@@ -2334,10 +2334,10 @@ If the [extruder] section is in a .cfg file other than printer.cfg the <code>SAV
 <h1 id="support-macros">Support Macros<a class="headerlink" href="#support-macros" title="Permanent link">&para;</a></h1>
 <h2 id="temperature-wait">Temperature Wait<a class="headerlink" href="#temperature-wait" title="Permanent link">&para;</a></h2>
 <p>The following macro can be used to replace <code>M109</code> hotend temperature set and <code>M190</code> bed temperature set G-code commands with a macro utilizing <code>temperature_wait</code> G-codes. This can be utilized in systems where the sensor temperature takes an extended time to converge on the set temperature. </p>
-<blockquote>
-<p>[!NOTE]
-This behaviour occurs primarily because MPC controls the modelled block temperature and not the hotend temperature sensor. For almost all cases, when temperature sensor overshoot/undershoot occurs, the block modelled temperature will be correctly at the set temperature. However, the Kalico system performs actions based on the sensor temperature only which can lead to undesirable delays in print actions with stock <code>M109</code> and <code>M190</code> commands.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This behaviour occurs primarily because MPC controls the modelled block temperature and not the hotend temperature sensor. For almost all cases, when temperature sensor overshoot/undershoot occurs, the block modelled temperature will be correctly at the set temperature. However, the Kalico system performs actions based on the sensor temperature only which can lead to undesirable delays in print actions with stock <code>M109</code> and <code>M190</code> commands.</p>
+</div>
 <div class="highlight"><pre><span></span><code>[gcode_macro M109] # Wait Hotend Temp
 rename_existing: M109.1
 gcode:

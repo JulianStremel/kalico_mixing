@@ -2757,10 +2757,10 @@ does not read <code>TRIGGERED</code> after attaching.</p>
 <h3 id="move_avoiding_dock-description">MOVE_AVOIDING_DOCK description<a class="headerlink" href="#move_avoiding_dock-description" title="Permanent link">&para;</a></h3>
 <p><img alt="safe dock area" src="img/move_avoiding_dock.jpg" />
 The strategy described below is used by the attach and detach commands to avoid dock collision.</p>
-<blockquote>
-<p>[!NOTE]<br />
-The default <code>safe_position</code> is <code>approach_position</code>. To help determine the avoiding path and prevent moving out of range, it should be configured as a point next to the safe area, farthest from the "move out of range" zone. </p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default <code>safe_position</code> is <code>approach_position</code>. To help determine the avoiding path and prevent moving out of range, it should be configured as a point next to the safe area, farthest from the "move out of range" zone. </p>
+</div>
 <p>Several cases are illustrated:</p>
 <ol>
 <li>Moving from <code>A</code> to <code>B</code>: The requested trajectory passes over the safe dock area, so the calculated trajectory passes around the dock area, close to the safe position.</li>
