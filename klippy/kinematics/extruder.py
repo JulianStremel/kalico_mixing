@@ -12,7 +12,7 @@ class ExtruderStepper:
         self.printer = config.get_printer()
         self.name = config.get_name().split()[-1]
         self.pressure_advance = self.pressure_advance_smooth_time = 0.0
-        self.config_pa = config.getfloat("pressure_advance", 0.0, minval=0.0)
+        self.config_pa = config.getfloat("pressure_advance", None, minval=0.0)
         self.config_smooth_time = config.getfloat(
             "pressure_advance_smooth_time", 0.040, above=0.0, maxval=0.200
         )
@@ -89,7 +89,9 @@ class ExtruderStepper:
             )
         self.stepper.set_position([extruder.last_position, 0.0, 0.0])
         self.stepper.set_trapq(extruder.get_trapq())
-        self._set_pressure_advance(extruder.config_pa, extruder.config_smooth_time)
+        # set pa from main extruder if not set
+        if self.config_pa is None:
+            self._set_pressure_advance(extruder.extruder_stepper.config_pa,extruder.extruder_stepper.config_smooth_time)
         self.motion_queue = extruder_name
 
     def set_rotation_distance(self, rotation_dist:float|int ):
