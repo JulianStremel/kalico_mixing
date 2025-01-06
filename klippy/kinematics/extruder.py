@@ -117,6 +117,8 @@ class ExtruderStepper:
         )
         ffi_main, ffi_lib = chelper.get_ffi()
         espa = ffi_lib.extruder_set_pressure_advance
+        if pressure_advance is None:
+            pressure_advance = 0.0
         espa(self.sk_extruder, pressure_advance, new_smooth_time)
         self.pressure_advance = pressure_advance
         self.pressure_advance_smooth_time = smooth_time
