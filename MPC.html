@@ -1969,7 +1969,7 @@
 <div class="highlight"><pre><span></span><code>[extruder]
 control: mpc
 heater_power: 50  
-cooling_fan: fan
+cooling_fan:
 filament_diameter: 1.75
 filament_density: 1.20
 filament_heat_capacity: 1.8 
@@ -1990,9 +1990,10 @@ filament_heat_capacity: 1.8
   temperature is recommended.</li>
 </ul>
 <ul>
-<li><code>cooling_fan: fan</code><br />
-<em>Default Value: fan</em><br />
-  This is the fan that is cooling extruded filament and the hotend. 
+<li><code>cooling_fan:</code><br />
+<em>Default Value: Nothing</em><br />
+  The fan that is cooling extruded filament and the hotend. Default is no fan so 
+  there will be no fan taken into account for controlling the heater.
   Specifying "fan" will automatically use the part cooling fan.</li>
 </ul>
 <ul>
