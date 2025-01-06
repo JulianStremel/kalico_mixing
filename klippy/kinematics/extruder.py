@@ -89,6 +89,7 @@ class ExtruderStepper:
             )
         self.stepper.set_position([extruder.last_position, 0.0, 0.0])
         self.stepper.set_trapq(extruder.get_trapq())
+        self._set_pressure_advance(extruder.config_pa, extruder.config_smooth_time)
         self.motion_queue = extruder_name
 
     def set_rotation_distance(self, rotation_dist:float|int ):

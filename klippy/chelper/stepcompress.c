@@ -25,7 +25,8 @@
 #include "serialqueue.h" // struct queue_message
 #include "stepcompress.h" // stepcompress_alloc
 
-#define CHECK_LINES 1
+// CHECK_LINES needs to be 0 for mixing estruders for now
+#define CHECK_LINES 0 // 1
 #define QUEUE_START_SIZE 1024
 
 struct stepcompress {
