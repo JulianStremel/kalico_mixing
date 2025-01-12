@@ -2398,12 +2398,12 @@ gcode:
 <span class="w">    </span><span class="na">{% if material in filament_table %}</span>
 <span class="w">        </span><span class="na">{% set (density, heat_capacity)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">filament_table[material] %}</span>
 
-<span class="w">        </span><span class="na">RESPOND PREFIX</span><span class="o">=</span><span class="s">🔥 MSG=&quot;Configured {heater} MPC for {material}. Density: {density}, Heat Capacity: {heat_capacity}&quot;</span>
+<span class="w">        </span><span class="na">RESPOND PREFIX=🔥 MSG</span><span class="o">=</span><span class="s">&quot;Configured {heater} MPC for {material}. Density: {density}, Heat Capacity: {heat_capacity}&quot;</span>
 <span class="w">    </span><span class="na">{% else %}</span>
 <span class="w">        </span><span class="na">{% set density</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">extruder_config.filament_density %}</span>
 <span class="w">        </span><span class="na">{% set heat_capacity</span><span class="o">=</span><span class="s">extruder_config.filament_heat_capacity %}</span>
 
-<span class="w">        </span><span class="na">RESPOND PREFIX</span><span class="o">=</span><span class="s">🔥 MSG=&quot;Unknown material &#39;{material}&#39;, using default mpc parameters for {heater}&quot;</span>
+<span class="w">        </span><span class="na">RESPOND PREFIX=🔥 MSG</span><span class="o">=</span><span class="s">&quot;Unknown material &#39;</span><span class="na">{material}&#39;, using default mpc parameters for {heater}&quot;</span>
 <span class="w">    </span><span class="na">{% endif %}</span>
 
 <span class="w">    </span><span class="na">MPC_SET HEATER</span><span class="o">=</span><span class="s">{heater} FILAMENT_DENSITY={density} FILAMENT_HEAT_CAPACITY={heat_capacity}</span>
