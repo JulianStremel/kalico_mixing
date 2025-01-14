@@ -3175,8 +3175,8 @@ file for each axis measured, although it can be used with multiple CSV files
 if you desire to average the results. Averaging results can be useful, for
 example, if resonance tests were done at multiple test points. Delete the extra
 CSV files if you do not desire to average them.</p>
-<div class="highlight"><pre><span></span><code>~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
-~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
+<div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
+~/klippy-env/bin/python ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
 </code></pre></div>
 
 <p>This script will generate the charts <code>/tmp/shaper_calibrate_x.png</code> and
@@ -3298,7 +3298,7 @@ smoothing exactly a chosen configuration creates.</p>
 <p>In the example above the suggested shaper parameters are not bad, but what if
 you want to get less smoothing on the X axis? You can try to limit the maximum
 shaper smoothing using the following command:</p>
-<div class="highlight"><pre><span></span><code>~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
+<div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
 </code></pre></div>
 
 <p>which limits the smoothing to 0.2 score. Now you can get the following result:</p>
@@ -3367,7 +3367,7 @@ on the <code>square_corner_velocity</code>. The general recommendation is not to
 it from its default value 5.0, and this is the value used by default by the
 <code>calibrate_shaper.py</code> script. If you did change it though, you should inform
 the script about it by passing <code>--square_corner_velocity=...</code> parameter, e.g.</p>
-<div class="highlight"><pre><span></span><code>~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --square_corner_velocity=10.0
+<div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --square_corner_velocity=10.0
 </code></pre></div>
 
 <p>so that it can calculate the maximum acceleration recommendations correctly.
@@ -3387,7 +3387,7 @@ TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 </code></pre></div>
 
 <p>and use <code>graph_accelerometer.py</code> to process the generated files, e.g.</p>
-<div class="highlight"><pre><span></span><code>~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
+<div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 </code></pre></div>
 
 <p>which will generate <code>/tmp/resonances.png</code> comparing the resonances.</p>
@@ -3399,7 +3399,7 @@ TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
 </code></pre></div>
 
 <p>and then use the same command</p>
-<div class="highlight"><pre><span></span><code>~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
+<div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 </code></pre></div>
 
 <p>to generate <code>/tmp/resonances.png</code> comparing the resonances.</p>
@@ -3504,7 +3504,7 @@ mode. The graph_accelerometer.py script supports several modes of operation:</p>
 <p>Note that graph_accelerometer.py script supports only the raw_data*.csv files
 and not resonances*.csv or calibration_data*.csv files.</p>
 <p>For example,</p>
-<div class="highlight"><pre><span></span><code>~/klipper/scripts/graph_accelerometer.py /tmp/raw_data_x_*.csv -o /tmp/resonances_x.png -c -a z
+<div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/scripts/graph_accelerometer.py /tmp/raw_data_x_*.csv -o /tmp/resonances_x.png -c -a z
 </code></pre></div>
 
 <p>will plot the comparison of several <code>/tmp/raw_data_x_*.csv</code> files for Z axis to
