@@ -557,6 +557,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tmc-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      TMC Drivers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#macros" class="md-nav__link">
     <span class="md-ellipsis">
       Macros
@@ -2108,6 +2117,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tmc-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      TMC Drivers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#macros" class="md-nav__link">
     <span class="md-ellipsis">
       Macros
@@ -2204,6 +2222,10 @@
 <li><a href="Config_Reference.html#temperature_fan"><code>[temperature_fan] control: curve</code></a> lets you set a fan curve instead of linear control</li>
 <li><a href="Config_Reference.html#temperature_fan"><code>[temperature_fan] reverse: True</code></a> will let you control a fan in reverse to temperature control. The lower the temperature, the higher the fan runs.</li>
 <li>Fans now normalize PWM power within <code>off_below</code> and <code>max_power</code>, so setting a fan to 10% will get you 10% fan speed within your configured off/max range.</li>
+</ul>
+<h2 id="tmc-drivers">TMC Drivers<a class="headerlink" href="#tmc-drivers" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="Config_Reference.html#tmc2240"><code>[tmc2240] driver_CS and current_range</code></a> let you tune the current scaler and current range of your tmc2240 drivers.</li>
 </ul>
 <h2 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">&para;</a></h2>
 <ul>
